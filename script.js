@@ -572,5 +572,141 @@ function setupShopFilters() {
                 const message = document.createElement('div');
                 message.id = 'noResultsMessage';
                 message.className = 'no-results';
-                message.innerHTML = '<p>لم يتم العثور على منتجات مطابقة 😔</p>';
-                document.qu
+                message.innerHTML = '<p>لم يتم العثور على منتجات مطابقة 😔?</p>';
+                document.querySelector('.products-grid').appendChild(message);
+            }
+        } else {
+            if (noResultsMessage) {
+                noResultsMessage.remove();
+            }
+        }
+    }
+    
+    searchInput.addEventListener('input', filterProducts);
+    categoryFilter.addEventListener('change', filterProducts);
+}
+
+// ====================================
+// Intersection Observer للتأثيرات البصرية
+// ====================================
+
+function setupScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    document.querySelectorAll('.fade-in').forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// ====================================
+// القائمة المتحركة للموبايل
+// ====================================
+
+function setupMobileMenu() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const menu = document.querySelector('.nav-menu');
+    
+    if (!toggle || !menu) return;
+    
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        // تغيير أيقونة القائمة
+        toggle.textContent = menu.classList.contains('active') ? '✕' : '☰';
+    });
+    
+    // إغلاق القائمة عند النقر على رابط
+    const menuLinks = menu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+            toggle.textContent = '☰';
+        });
+    });
+}
+
+// ====================================
+// تأثير التمرير على شريط التنقل
+// ====================================
+
+function setupNavbarScroll() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+}
+
+// ====================================
+// تهيئة عند تحميل الصفحة
+// ====================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // تحديث عداد السلة
+    updateCartCount();
+    
+    // بدء العداد التنازلي
+    startCountdown();
+    
+    // تفعيل تأثيرات التمرير
+    setupScrollAnimations();
+    
+    // تفعيل القائمة المتحركة للموبايل
+    setupMobileMenu();
+    
+    // تفعيل فلاتر المتجر
+    setupShopFilters();
+    
+    // تفعيل تأثير التمرير على شريط التنقل
+    setupNavbarScroll();
+    
+    // إضافة تأثير smooth scroll للروابط الداخلية
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+
+// ====================================
+// معالجة الأخطاء العامة
+// ====================================
+
+window.addEventListener('error', (event) => {
+    console.error('خطأ في الصفحة:', event.error);
+});
+
+// منع فقدان البيانات عند إغلاق الصفحة
+window.addEventListener('beforeunload', (event) => {
+    const cart = getCart();
+    if (cart.length > 0 && window.location.pathname.includes('checkout')) {
+        event.preventDefault();
+        event.returnValue = 'لديك عناصر في السلة. هل تريد المغادرة؟';
+    }
+});
