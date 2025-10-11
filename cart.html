@@ -39,7 +39,7 @@
         <div class="container">
             <h2 class="section-title">سلة التسوق</h2>
             
-            <div class="cart-content" style="display: none;">
+            <div class="cart-content">
                 <!-- عناصر السلة -->
                 <div class="cart-items" id="cartItems">
                     <!-- سيتم ملؤها ديناميكياً عبر JavaScript -->
@@ -60,17 +60,17 @@
                         <span>الإجمالي:</span>
                         <span id="total">0 درهم</span>
                     </div>
-                    <button class="btn btn-primary btn-large" onclick="proceedToCheckout()">تابع الدفع</button>
-                    <a href="shop.html" class="btn btn-secondary btn-large" style="margin-top: 1rem; display: block; text-align: center; text-decoration: none;">متابعة التسوق</a>
+                    <button class="btn btn-primary" onclick="proceedToCheckout()">تابع الدفع</button>
+                    <a href="shop.html" class="btn btn-secondary">متابعة التسوق</a>
                 </div>
             </div>
 
             <!-- رسالة السلة الفارغة -->
-            <div class="empty-cart" id="emptyCart" style="display: block;">
+            <div class="empty-cart" id="emptyCart" style="display: none;">
                 <div class="empty-cart-icon">🛒</div>
                 <h3>سلة التسوق فارغة</h3>
                 <p>لم تقم بإضافة أي منتجات بعد</p>
-                <a href="shop.html" class="btn btn-primary btn-large">تصفح المنتجات</a>
+                <a href="shop.html" class="btn btn-primary">تصفح المنتجات</a>
             </div>
         </div>
     </section>
