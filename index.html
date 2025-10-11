@@ -3,101 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elixir Naturel Maroc - سرّ الطبيعة | مربى الثوم والتين بزيت الزيتون</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="اكتشف إكسير الطبيعة: مربى الثوم والتين 100% طبيعي لتعزيز طاقتك. اطلب الآن واستفد من العروض!">
+    <meta name="keywords" content="مربى ثوم تين، منتجات طبيعية مغربية، Elixir Naturel">
+    <title>Elixir Naturel Maroc - مربى الثوم والتين بزيت الزيتون | منتجات طبيعية مغربية</title>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="hero" id="hero">
+    <!-- شريط التنقل العلوي -->
+    <nav class="navbar">
         <div class="container">
-            <nav class="nav">
-                <h1 class="logo">Elixir Naturel Maroc</h1>
-                <p class="slogan">من قلب الطبيعة... تولد طاقتك.</p>
-                <ul class="nav-links">
-                    <li><a href="#hero">الرئيسية</a></li>
-                    <li><a href="#features">لماذا Elixir Naturel؟</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#contact">تواصل معنا</a></li>
-                </ul>
-            </nav>
+            <div class="nav-brand">
+                <h1>Elixir Naturel Maroc</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="shop.html">المتجر</a></li>
+                <li><a href="#about">عن الشركة</a></li>
+                <li><a href="#contact">اتصال</a></li>
+                <li><a href="cart.html" class="cart-link">
+                    <span>🛒</span>
+                    <span class="cart-count">0</span>
+                </a></li>
+                <li><a href="tel:+212681848262" class="phone-link">📞 +212681848262</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">☰</div>
+        </div>
+    </nav>
+
+    <!-- قسم الـ Hero -->
+    <section class="hero">
+        <div class="container">
             <div class="hero-content">
-                <h2>اكتشف سرّ الطاقة الطبيعية المغربية</h2>
-                <p>مربى الثوم والتين بزيت الزيتون – قنينة 250 جرام، منتج 100% طبيعي، غني بمضادات الأكسدة، يدعم المناعة ويعطيك نشاطاً صباحياً لا يُقاوم.</p>
-                <img src="https://via.placeholder.com/600x400?text=Elixir+Naturel+Product" alt="صورة مربى الثوم والتين بزيت الزيتون الطبيعي" class="hero-image">
-                <div class="cta">
-                    <button class="btn-primary">اطلب الآن - 45 درهم</button>
-                    <p class="offer">عرض الإطلاق: اشترِ 2 واحصل على 1 مجاناً!</p>
+                <div class="hero-text">
+                    <h2 class="hero-title">مربى الثوم والتين بزيت الزيتون</h2>
+                    <p class="hero-slogan">من قلب الطبيعة... تولد طاقتك</p>
+                    <p class="hero-description">
+                        منتج طبيعي 100% من مزارع مغربية عضوية، غني بمضادات الأكسدة، يدعم المناعة ويعطيك نشاطًا صباحيًا لا يُقاوم. مستوحى من التراث المغربي الأصيل.
+                    </p>
+                    <div class="hero-price">
+                        <span class="price">45 درهم</span>
+                        <span class="size">قنينة 250 جرام</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCartFromHero()">اطلب الآن</button>
+                    
+                    <!-- عرض ترويجي -->
+                    <div class="promo-banner">
+                        <p class="promo-text">🎁 عرض خاص: اشترِ 2 واحصل على 1 مجاناً!</p>
+                        <div class="countdown">
+                            <span>ينتهي خلال: </span>
+                            <span id="countdown-timer">23:59:59</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1599909533730-f9d5f7d7b7f5?w=600&h=600&fit=crop" 
+                         alt="مربى الثوم والتين بزيت الزيتون - Elixir Naturel Maroc"
+                         onerror="this.src='https://via.placeholder.com/600x600?text=مربى+الثوم+والتين'">
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <section class="features" id="features">
+    <!-- قسم لماذا Elixir Naturel؟ -->
+    <section id="features" class="features">
         <div class="container">
-            <h3>لماذا Elixir Naturel؟</h3>
+            <h2 class="section-title">لماذا Elixir Naturel؟</h2>
             <div class="features-grid">
-                <div class="feature">
-                    <img src="https://via.placeholder.com/300x200?text=Fresh+Garlic" alt="ثوم طازج" class="feature-image">
-                    <span class="icon">🌿</span>
-                    <h4>مكونات طبيعية 100%</h4>
-                    <p>نستخدم أجود أنواع الثوم والتين وزيت الزيتون البكر الممتاز، كلها من مزارع مغربية عضوية، لضمان نقاء وجودة لا مثيل لها.</p>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌿</div>
+                    <h3>مكونات طبيعية 100%</h3>
+                    <p>من مزارع مغربية عضوية، بدون إضافات صناعية أو مواد حافظة</p>
                 </div>
-                <div class="feature">
-                    <img src="https://via.placeholder.com/300x200?text=Dried+Figs" alt="تين مجفف" class="feature-image">
-                    <span class="icon">⚡</span>
-                    <h4>يعزز الطاقة والمناعة</h4>
-                    <p>تركيبة غنية بمضادات الأكسدة والفيتامينات التي تمنحك نشاطًا يدوم طوال اليوم وتقوي جهاز المناعة لديك بشكل طبيعي.</p>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>يعزز الطاقة والمناعة</h3>
+                    <p>غني بمضادات الأكسدة من الثوم والتين لدعم صحتك اليومية</p>
                 </div>
-                <div class="feature">
-                    <img src="https://via.placeholder.com/300x200?text=Natural+Jam" alt="مربى طبيعي" class="feature-image">
-                    <span class="icon">🍯</span>
-                    <h4>طعم فريد وفوائد متعددة</h4>
-                    <p>مزيج متوازن يجمع بين حلاوة التين اللذيذة وقوة الثوم الصحية، مع لمسة دافئة من القرفة، ليقدم لك تجربة طعم فريدة وفوائد صحية جمة.</p>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">❤️</div>
+                    <h3>طعم فريد وفوائد متعددة</h3>
+                    <p>مثالي للوجبات الصباحية مع زيت الزيتون، يمنحك نشاطًا طوال اليوم</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
+    <!-- قسم من نحن -->
+    <section id="about" class="about">
         <div class="container">
-            <h3>من نحن</h3>
-            <p>في Elixir Naturel Maroc، نؤمن بقوة الطبيعة في تعزيز الصحة والحيوية. نحن ملتزمون بتقديم منتجات طبيعية 100% مستوحاة من التراث المغربي الغني، باستخدام أجود المكونات المحلية. مهمتنا هي توفير حلول صحية ومغذية تدعم نمط حياة نشط وصحي.</p>
-            <p>نحن نفخر بمنتجنا الفريد، مربى الثوم والتين بزيت الزيتون، الذي يجمع بين الفوائد الصحية للثوم والتين وزيت الزيتون البكر الممتاز، مع لمسة من القرفة لإضافة نكهة مميزة. كل قنينة هي نتيجة شغفنا بالجودة والالتزام بالصحة الطبيعية.</p>
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=400&fit=crop" 
+                         alt="فريق Elixir Naturel Maroc"
+                         onerror="this.src='https://via.placeholder.com/800x400?text=About+Us'">
+                </div>
+                <div class="about-text fade-in">
+                    <h2 class="section-title">من نحن</h2>
+                    <p>
+                        <strong>Elixir Naturel Maroc</strong> هي علامة تجارية مغربية ملتزمة بتقديم المنتجات الطبيعية المستوحاة من التراث المغربي الأصيل. رؤيتنا هي توفير طاقة طبيعية للجميع من خلال منتجات عالية الجودة تجمع بين الأصالة والفائدة الصحية.
+                    </p>
+                    <p>
+                        نحن نجمع بين الثوم والتين التقليديين في مدينة آسفي لصنع إكسير يومي يمنحك القوة والحيوية. قيمنا الأساسية هي الاستدامة، الجودة، والشفافية في كل ما نقدمه.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <!-- قسم تواصل معنا -->
+    <section id="contact" class="contact">
         <div class="container">
-            <h3>تواصل معنا</h3>
-            <p>يسعدنا تلقي استفساراتكم وطلباتكم. يرجى ملء النموذج أدناه وسنتواصل معكم في أقرب وقت ممكن.</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">الاسم الكامل:</label>
-                    <input type="text" id="name" name="name" required>
+            <h2 class="section-title">تواصل معنا</h2>
+            <div class="contact-content">
+                <div class="contact-form fade-in">
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" value="elhaddoumy@hotmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف (اختياري)</label>
+                            <input type="tel" id="phone" name="phone" value="+212681848262">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">رسالتك</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="email">البريد الإلكتروني:</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="contact-info fade-in">
+                    <div class="info-item">
+                        <h3>📞 الهاتف</h3>
+                        <p><a href="tel:+212681848262">+212681848262</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📧 البريد الإلكتروني</h3>
+                        <p><a href="mailto:elhaddoumy@hotmail.com">elhaddoumy@hotmail.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📍 العنوان</h3>
+                        <p>مدينة آسفي، المغرب</p>
+                    </div>
+                    <div class="social-links">
+                        <h3>تابعنا على</h3>
+                        <div class="social-icons">
+                            <a href="https://facebook.com/elixirnaturel" target="_blank">📘 فيسبوك</a>
+                            <a href="https://instagram.com/elixirnaturel" target="_blank">📷 إنستغرام</a>
+                            <a href="https://x.com/elixirnaturel" target="_blank">🐦 تويتر</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="phone">رقم الهاتف (اختياري):</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="message">رسالتك:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn-primary">إرسال الرسالة</button>
-            </form>
+            </div>
+            
+            <!-- خريطة Google Maps -->
+            <div class="map-container fade-in">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106401.23456789!2d-9.23456789!3d32.29876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDE3JzU1LjYiTiA5wrAxNCcwNC40Ilc!5e0!3m2!1sen!2sma!4v1234567890" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    title="خريطة Elixir Naturel في آسفي">
+                </iframe>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <!-- التذييل -->
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Elixir Naturel Maroc. جميع الحقوق محفوظة. | محمد الهدوني</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Elixir Naturel Maroc</h3>
+                    <p>من قلب الطبيعة... تولد طاقتك</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="shop.html">المتجر</a></li>
+                        <li><a href="#about">عن الشركة</a></li>
+                        <li><a href="#contact">اتصال</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>سياسات</h3>
+                    <ul>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <p>📞 <a href="tel:+212681848262">+212681848262</a></p>
+                    <p>📧 <a href="mailto:elhaddoumy@hotmail.com">elhaddoumy@hotmail.com</a></p>
+                    <p>📍 مدينة آسفي، المغرب</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elixir Naturel Maroc. جميع الحقوق محفوظة</p>
+            </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
+
