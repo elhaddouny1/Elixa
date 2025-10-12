@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="سلة التسوق - Elixir Naturel Maroc">
+    <title>سلة التسوق - Elixir Naturel Maroc</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- شريط التنقل العلوي -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Elixir Naturel Maroc</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="shop.html">المتجر</a></li>
+                <li><a href="index.html#about">عن الشركة</a></li>
+                <li><a href="index.html#contact">اتصال</a></li>
+                <li><a href="cart.html" class="cart-link active">
+                    <span>🛒</span>
+                    <span class="cart-count">0</span>
+                </a></li>
+                <li><a href="tel:+212681848262" class="phone-link">📞 +212681848262</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">☰</div>
+        </div>
+    </nav>
+
+    <!-- قسم سلة التسوق -->
+    <section class="cart-section">
+        <div class="container">
+            <h2 class="section-title">سلة التسوق</h2>
+            
+            <div class="cart-content" style="display: none;">
+                <!-- عناصر السلة -->
+                <div class="cart-items" id="cartItems">
+                    <!-- سيتم ملؤها ديناميكياً عبر JavaScript -->
+                </div>
+
+                <!-- ملخص الطلب -->
+                <div class="cart-summary">
+                    <h3>ملخص الطلب</h3>
+                    <div class="summary-row">
+                        <span>المجموع الفرعي:</span>
+                        <span id="subtotal">0 درهم</span>
+                    </div>
+                    <div class="summary-row promo-applied" id="promoRow" style="display: none;">
+                        <span>خصم العرض (اشترِ 2 واحصل على 1):</span>
+                        <span id="promoDiscount">0 درهم</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>الإجمالي:</span>
+                        <span id="total">0 درهم</span>
+                    </div>
+                    <button class="btn btn-primary btn-large" onclick="proceedToCheckout()">تابع الدفع</button>
+                    <a href="shop.html" class="btn btn-secondary btn-large" style="margin-top: 1rem; display: block; text-align: center; text-decoration: none;">متابعة التسوق</a>
+                </div>
+            </div>
+
+            <!-- رسالة السلة الفارغة -->
+            <div class="empty-cart" id="emptyCart" style="display: block;">
+                <div class="empty-cart-icon">🛒</div>
+                <h3>سلة التسوق فارغة</h3>
+                <p>لم تقم بإضافة أي منتجات بعد</p>
+                <a href="shop.html" class="btn btn-primary btn-large">تصفح المنتجات</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Elixir Naturel Maroc</h3>
+                    <p>من قلب الطبيعة... تولد طاقتك</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="shop.html">المتجر</a></li>
+                        <li><a href="index.html#about">عن الشركة</a></li>
+                        <li><a href="index.html#contact">اتصال</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>سياسات</h3>
+                    <ul>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <p>📞 <a href="tel:+212681848262">+212681848262</a></p>
+                    <p>📧 <a href="mailto:elhaddouny@hotmail.com">elhaddouny@hotmail.com</a></p>
+                    <p>📍 مدينة آسفي، المغرب</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elixir Naturel Maroc. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // تحميل السلة عند تحميل الصفحة
+        window.addEventListener('DOMContentLoaded', displayCart);
+    </script>
+</body>
+</html>
+
