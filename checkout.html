@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="إتمام الطلب - Elixir Naturel Maroc">
+    <title>إتمام الطلب - Elixir Naturel Maroc</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-enhancements.css">
+</head>
+<body>
+    <!-- شريط التنقل العلوي -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Elixir Naturel Maroc</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="shop.html">المتجر</a></li>
+                <li><a href="index.html#about">عن الشركة</a></li>
+                <li><a href="index.html#contact">اتصال</a></li>
+                <li><a href="cart.html" class="cart-link">
+                    <span>🛒</span>
+                    <span class="cart-count">0</span>
+                </a></li>
+                <li><a href="tel:+212681848262" class="phone-link">📞 +212681848262</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">☰</div>
+        </div>
+    </nav>
+
+    <!-- قسم الدفع -->
+    <section class="checkout-section">
+        <div class="container">
+            <h2 class="section-title">إتمام الطلب</h2>
+            
+            <div class="checkout-content">
+                <!-- نموذج الدفع -->
+                <div class="checkout-form">
+                    <form id="checkoutForm" onsubmit="handleCheckoutSubmit(event)">
+                        <h3>معلومات الشحن</h3>
+                        
+                        <div class="form-group">
+                            <label for="fullName">الاسم الكامل *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني *</label>
+                            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+212..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">المدينة * (التوصيل حاليًا في آسفي فقط)</label>
+                            <input type="text" id="city" name="city" placeholder="آسفي" required>
+                            <small style="color: #e74c3c; font-size: 0.9rem; margin-top: 0.5rem; display: block;">⚠️ التوصيل والبيع حاليًا في مدينة آسفي فقط</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">العنوان المفصل *</label>
+                            <textarea id="address" name="address" rows="3" placeholder="الشارع، الحي، الرقم..." required></textarea>
+                        </div>
+
+                        <h3>طريقة الدفع</h3>
+                        
+                        <div class="payment-methods">
+                            <label class="payment-option" style="opacity: 0.5; cursor: not-allowed;">
+                                <input type="radio" name="paymentMethod" value="online" disabled>
+                                <span>دفع إلكتروني (غير متوفر حاليًا)</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="cash" checked>
+                                <span>الدفع عند الاستلام ✅</span>
+                            </label>
+                        </div>
+
+                        <div class="payment-note" style="background-color: #e8f5e9; padding: 1rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid #4CAF50;">
+                            <p style="margin: 0; color: #2e7d32; font-weight: 500;">💰 الدفع عند الاستلام</p>
+                            <p style="margin: 0.5rem 0 0 0; color: #555; font-size: 0.9rem;">ادفع نقدًا عند استلام طلبك في مدينة آسفي</p>
+                        </div>
+
+                        <div id="transferPayment" class="payment-details" style="display: none;">
+                            <div class="transfer-info">
+                                <p><strong>معلومات التحويل البنكي:</strong></p>
+                                <p>اسم البنك: بنك المغرب</p>
+                                <p>رقم الحساب: MA123456789012345678</p>
+                                <p>اسم المستفيد: Elixir Naturel Maroc</p>
+                                <p class="note">يرجى إرسال إثبات التحويل إلى: elhaddouny@hotmail.com</p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">أكمل الطلب</button>
+                    </form>
+                </div>
+
+                <!-- ملخص الطلب -->
+                <div class="order-summary">
+                    <h3>ملخص الطلب</h3>
+                    <div id="orderItems" class="order-items">
+                        <!-- سيتم ملؤها ديناميكياً -->
+                    </div>
+                    <div class="summary-calculations">
+                        <div class="summary-row">
+                            <span>المجموع الفرعي:</span>
+                            <span id="checkoutSubtotal">0 درهم</span>
+                        </div>
+                        <div class="summary-row promo-applied" id="checkoutPromoRow" style="display: none;">
+                            <span>خصم العرض:</span>
+                            <span id="checkoutPromoDiscount">0 درهم</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>الشحن:</span>
+                            <span id="shippingCost">20 درهم</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>الضرائب:</span>
+                            <span id="taxCost">0 درهم</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>الإجمالي النهائي:</span>
+                            <span id="checkoutTotal">0 درهم</span>
+                        </div>
+                    </div>
+                    <div class="security-note">
+                        <p>🔒 معاملتك آمنة ومحمية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة التأكيد -->
+    <div id="confirmationModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-icon">✅</div>
+            <h2>تم الطلب بنجاح!</h2>
+            <p>رقم الطلب: <strong id="orderNumber">#12345</strong></p>
+            <p>سيتم شحن طلبك خلال 3 أيام عمل</p>
+            <p>تم إرسال تفاصيل الطلب إلى بريدك الإلكتروني</p>
+            <button class="btn btn-primary" onclick="closeConfirmation()">العودة للرئيسية</button>
+        </div>
+    </div>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Elixir Naturel Maroc</h3>
+                    <p>من قلب الطبيعة... تولد طاقتك</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="shop.html">المتجر</a></li>
+                        <li><a href="index.html#about">عن الشركة</a></li>
+                        <li><a href="index.html#contact">اتصال</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>سياسات</h3>
+                    <ul>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <p>📞 <a href="tel:+212681848262">+212681848262</a></p>
+                    <p>📧 <a href="mailto:elhaddouny@hotmail.com">elhaddouny@hotmail.com</a></p>
+                    <p>📍 مدينة آسفي، المغرب</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elixir Naturel Maroc. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // تحميل ملخص الطلب عند تحميل الصفحة
+        window.addEventListener('DOMContentLoaded', displayCheckoutSummary);
+
+        // التبديل بين طرق الدفع
+        document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'card') {
+                    document.getElementById('cardPayment').style.display = 'block';
+                    document.getElementById('transferPayment').style.display = 'none';
+                } else {
+                    document.getElementById('cardPayment').style.display = 'none';
+                    document.getElementById('transferPayment').style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

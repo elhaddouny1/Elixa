@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تسوق منتجاتنا الطبيعية المغربية - مربى الثوم والتين بزيت الزيتون">
+    <title>المتجر - Elixir Naturel Maroc</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-enhancements.css">
+</head>
+<body>
+    <!-- شريط التنقل العلوي -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Elixir Naturel Maroc</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="shop.html" class="active">المتجر</a></li>
+                <li><a href="index.html#about">عن الشركة</a></li>
+                <li><a href="index.html#contact">اتصال</a></li>
+                <li><a href="cart.html" class="cart-link">
+                    <span>🛒</span>
+                    <span class="cart-count">0</span>
+                </a></li>
+                <li><a href="tel:+212681848262" class="phone-link">📞 +212681848262</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">☰</div>
+        </div>
+    </nav>
+
+    <!-- قسم المتجر -->
+    <section class="shop-section">
+        <div class="container">
+            <h2 class="section-title">منتجاتنا الطبيعية</h2>
+            
+            <!-- فلاتر البحث -->
+            <div class="shop-filters">
+                <input type="text" id="searchInput" placeholder="ابحث عن منتج..." class="search-input">
+                <select id="categoryFilter" class="category-filter">
+                    <option value="all">جميع التصنيفات</option>
+                    <option value="natural">منتجات طبيعية</option>
+                    <option value="special">عروض خاصة</option>
+                </select>
+            </div>
+
+            <!-- قائمة المنتجات -->
+            <div class="products-grid" id="productsGrid">
+                <!-- المنتج الرئيسي: مربى الثوم والتين -->
+                <div class="product-card fade-in" data-category="natural special">
+                    <div class="product-badge">عرض خاص</div>
+                    <div class="product-images">
+                        <img src="https://images.unsplash.com/photo-1599909533730-f9d5f7d7b7f5?w=400&h=400&fit=crop" 
+                             alt="مربى الثوم والتين بزيت الزيتون"
+                             class="product-main-image"
+                             onerror="this.src='https://via.placeholder.com/400x400?text=مربى+الثوم+والتين'">
+                        <div class="product-thumbnails">
+                            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784210?w=100&h=100&fit=crop" 
+                                 alt="صورة إضافية 1"
+                                 onclick="changeMainImage(this)"
+                                 onerror="this.src='https://via.placeholder.com/100x100?text=1'">
+                            <img src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=100&h=100&fit=crop" 
+                                 alt="صورة إضافية 2"
+                                 onclick="changeMainImage(this)"
+                                 onerror="this.src='https://via.placeholder.com/100x100?text=2'">
+                            <img src="https://images.unsplash.com/photo-1587049352866-340e0b6a2e3e?w=100&h=100&fit=crop" 
+                                 alt="صورة إضافية 3"
+                                 onclick="changeMainImage(this)"
+                                 onerror="this.src='https://via.placeholder.com/100x100?text=3'">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">مربى الثوم والتين بزيت الزيتون</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">4.8/5 (50 تقييم)</span>
+                        </div>
+                        <p class="product-description">
+                            منتج طبيعي 100% يجمع بين فوائد الثوم والتين وزيت الزيتون. غني بمضادات الأكسدة، يعزز المناعة ويمنحك طاقة يومية. مثالي للوجبات الصباحية.
+                        </p>
+                        <div class="product-details">
+                            <h4>المكونات:</h4>
+                            <ul>
+                                <li>ثوم طبيعي من مزارع مغربية</li>
+                                <li>تين عضوي</li>
+                                <li>زيت زيتون بكر ممتاز</li>
+                            </ul>
+                            <h4>الفوائد:</h4>
+                            <ul>
+                                <li>تعزيز المناعة</li>
+                                <li>طاقة يومية مستدامة</li>
+                                <li>غني بمضادات الأكسدة</li>
+                            </ul>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">45 درهم</span>
+                            <span class="size">250 جرام</span>
+                        </div>
+                        <div class="product-options">
+                            <label for="quantity-1">الكمية:</label>
+                            <input type="number" id="quantity-1" min="1" max="10" value="1" class="quantity-input">
+                        </div>
+                        <button class="btn btn-primary" onclick="addToCart('مربى الثوم والتين بزيت الزيتون', 45, 'quantity-1', 'https://images.unsplash.com/photo-1599909533730-f9d5f7d7b7f5?w=100&h=100&fit=crop')">
+                            أضف إلى السلة
+                        </button>
+                        <div class="promo-note">🎁 اشترِ 2 واحصل على 1 مجاناً!</div>
+                    </div>
+                </div>
+
+                <!-- منتجات إضافية (قابلة للتوسع) -->
+                <div class="product-card fade-in coming-soon" data-category="natural">
+                    <div class="product-images">
+                        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784210?w=400&h=400&fit=crop" 
+                             alt="عسل طبيعي"
+                             onerror="this.src='https://via.placeholder.com/400x400?text=عسل+طبيعي'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">عسل طبيعي مغربي</h3>
+                        <p class="product-description">قريباً... منتج جديد من مزارع النحل المغربية</p>
+                        <div class="product-price">
+                            <span class="price">قريباً</span>
+                        </div>
+                        <button class="btn btn-secondary" disabled>قريباً</button>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in coming-soon" data-category="natural">
+                    <div class="product-images">
+                        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop" 
+                             alt="زيت زيتون"
+                             onerror="this.src='https://via.placeholder.com/400x400?text=زيت+زيتون'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">زيت زيتون بكر ممتاز</h3>
+                        <p class="product-description">قريباً... زيت زيتون عضوي من أجود الأنواع</p>
+                        <div class="product-price">
+                            <span class="price">قريباً</span>
+                        </div>
+                        <button class="btn btn-secondary" disabled>قريباً</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تقييمات العملاء -->
+            <div class="reviews-section">
+                <h3 class="section-title">آراء عملائنا</h3>
+                <div class="reviews-grid">
+                    <div class="review-card fade-in">
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"طعم رائع وصحي! أصبح جزءاً من فطوري اليومي"</p>
+                        <p class="review-author">- فاطمة، الدار البيضاء</p>
+                    </div>
+                    <div class="review-card fade-in">
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"منتج طبيعي 100%، أشعر بالطاقة طوال اليوم"</p>
+                        <p class="review-author">- محمد، الرباط</p>
+                    </div>
+                    <div class="review-card fade-in">
+                        <div class="review-rating">⭐⭐⭐⭐</div>
+                        <p class="review-text">"جودة ممتازة وتوصيل سريع، أنصح به بشدة"</p>
+                        <p class="review-author">- نادية، مراكش</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Elixir Naturel Maroc</h3>
+                    <p>من قلب الطبيعة... تولد طاقتك</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="shop.html">المتجر</a></li>
+                        <li><a href="index.html#about">عن الشركة</a></li>
+                        <li><a href="index.html#contact">اتصال</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>سياسات</h3>
+                    <ul>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <p>📞 <a href="tel:+212681848262">+212681848262</a></p>
+                    <p>📧 <a href="mailto:elhaddouny@hotmail.com">elhaddouny@hotmail.com</a></p>
+                    <p>📍 مدينة آسفي، المغرب</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elixir Naturel Maroc. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
+
