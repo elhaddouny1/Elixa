@@ -1,296 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="اكتشف إكسير الطبيعة: مربى الثوم والتين 100% طبيعي لتعزيز طاقتك. اطلب الآن واستفد من العروض!">
-    <meta name="keywords" content="مربى ثوم تين، منتجات طبيعية مغربية، Elixir Naturel">
-    <meta name="theme-color" content="#4CAF50">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Elixir Naturel">
-    <title>Elixir Naturel Maroc - مربى الثوم والتين بزيت الزيتون | منتجات طبيعية مغربية</title>
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile-enhancements.css">
-</head>
-<body>
-    <!-- شريط التنقل العلوي -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <h1>Elixir Naturel Maroc</h1>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">الرئيسية</a></li>
-                <li><a href="shop.html">المتجر</a></li>
-                <li><a href="#about">عن الشركة</a></li>
-                <li><a href="#contact">اتصال</a></li>
-                <li><a href="cart.html" class="cart-link">
-                    <span>🛒</span>
-                    <span class="cart-count">0</span>
-                </a></li>
-                <li><a href="tel:+212681848262" class="phone-link">📞 +212681848262</a></li>
-            </ul>
-            <div class="mobile-menu-toggle">☰</div>
-        </div>
-    </nav>
-
-    <!-- قسم الـ Hero -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h2 class="hero-title">مربى الثوم والتين بزيت الزيتون</h2>
-                    <p class="hero-slogan">من قلب الطبيعة... تولد طاقتك</p>
-                    <p class="hero-description">
-                        منتج طبيعي 100% من مزارع مغربية عضوية، غني بمضادات الأكسدة، يدعم المناعة ويعطيك نشاطًا صباحيًا لا يُقاوم. مستوحى من التراث المغربي الأصيل.
-                    </p>
-                    <div class="hero-price">
-                        <span class="price">45 درهم</span>
-                        <span class="size">قنينة 250 جرام</span>
-                    </div>
-                    <button class="btn btn-primary" onclick="addToCartFromHero()">اطلب الآن</button>
-                    
-                    <!-- عرض ترويجي -->
-                    <div class="promo-banner">
-                        <p class="promo-text">🎁 عرض خاص: اشترِ 2 واحصل على 1 مجاناً!</p>
-                        <div class="countdown">
-                            <span>ينتهي خلال: </span>
-                            <span id="countdown-timer">23:59:59</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1599909533730-f9d5f7d7b7f5?w=600&h=600&fit=crop" 
-                         alt="مربى الثوم والتين بزيت الزيتون - Elixir Naturel Maroc"
-                         onerror="this.src='https://via.placeholder.com/600x600?text=مربى+الثوم+والتين'">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم لماذا Elixir Naturel؟ -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">لماذا Elixir Naturel؟</h2>
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🌿</div>
-                    <h3>مكونات طبيعية 100%</h3>
-                    <p>من مزارع مغربية عضوية، بدون إضافات صناعية أو مواد حافظة</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>يعزز الطاقة والمناعة</h3>
-                    <p>غني بمضادات الأكسدة من الثوم والتين لدعم صحتك اليومية</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">❤️</div>
-                    <h3>طعم فريد وفوائد متعددة</h3>
-                    <p>مثالي للوجبات الصباحية مع زيت الزيتون، يمنحك نشاطًا طوال اليوم</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم من نحن -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image fade-in">
-                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=400&fit=crop" 
-                         alt="فريق Elixir Naturel Maroc"
-                         onerror="this.src='https://via.placeholder.com/800x400?text=About+Us'">
-                </div>
-                <div class="about-text fade-in">
-                    <h2 class="section-title">من نحن</h2>
-                    <p>
-                        <strong>Elixir Naturel Maroc</strong> هي علامة تجارية مغربية ملتزمة بتقديم المنتجات الطبيعية المستوحاة من التراث المغربي الأصيل. رؤيتنا هي توفير طاقة طبيعية للجميع من خلال منتجات عالية الجودة تجمع بين الأصالة والفائدة الصحية.
-                    </p>
-                    <p>
-                        نحن نجمع بين الثوم والتين التقليديين في مدينة آسفي لصنع إكسير يومي يمنحك القوة والحيوية. قيمنا الأساسية هي الاستدامة، الجودة، والشفافية في كل ما نقدمه.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم تواصل معنا -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">تواصل معنا</h2>
-            <div class="contact-content">
-                <div class="contact-form fade-in">
-                    <form id="contactForm" onsubmit="handleContactSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">الاسم الكامل</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">البريد الإلكتروني</label>
-                            <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">رقم الهاتف (اختياري)</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+212...">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">رسالتك</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
-                    </form>
-                </div>
-                <div class="contact-info fade-in">
-                    <div class="info-item">
-                        <h3>📞 الهاتف</h3>
-                        <p><a href="tel:+212681848262">+212681848262</a></p>
-                    </div>
-                    <div class="info-item">
-                        <h3>📧 البريد الإلكتروني</h3>
-                        <p><a href="mailto:elhaddouny@hotmail.com">elhaddouny@hotmail.com</a></p>
-                    </div>
-                    <div class="info-item">
-                        <h3>📍 العنوان</h3>
-                        <p>مدينة آسفي، المغرب</p>
-                    </div>
-                    <div class="social-links">
-                        <h3>تابعنا على</h3>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/share/17TQx8DQUM/" target="_blank">📘 فيسبوك</a>
-                            <a href="https://www.instagram.com/elixir_naturel_maroc?igsh=MTIzOGFhbGJmYjZzOA==" target="_blank">📷 إنستغرام</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- خريطة Google Maps -->
-            <div class="map-container fade-in">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106401.23456789!2d-9.23456789!3d32.29876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDE3JzU1LjYiTiA5wrAxNCcwNC40Ilc!5e0!3m2!1sen!2sma!4v1234567890" 
-                    width="100%" 
-                    height="400" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy"
-                    title="خريطة Elixir Naturel في آسفي">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- التذييل -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Elixir Naturel Maroc</h3>
-                    <p>من قلب الطبيعة... تولد طاقتك</p>
-                </div>
-                <div class="footer-section">
-                    <h3>روابط سريعة</h3>
-                    <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="shop.html">المتجر</a></li>
-                        <li><a href="#about">عن الشركة</a></li>
-                        <li><a href="#contact">اتصال</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>سياسات</h3>
-                    <ul>
-                        <li><a href="#">سياسة الخصوصية</a></li>
-                        <li><a href="#">شروط الاستخدام</a></li>
-                        <li><a href="#">سياسة الإرجاع</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>تواصل معنا</h3>
-                    <p>📞 <a href="tel:+212681848262">+212681848262</a></p>
-                    <p>📧 <a href="mailto:elhaddouny@hotmail.com">elhaddouny@hotmail.com</a></p>
-                    <p>📍 مدينة آسفي، المغرب</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Elixir Naturel Maroc. جميع الحقوق محفوظة</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- زر تنزيل التطبيق -->
-    <div class="install-app-banner" id="installBanner">
-        <span>📱 قم بتنزيل تطبيقنا للحصول على تجربة أفضل!</span>
-        <button id="installButton">تنزيل التطبيق</button>
-        <button class="close-banner" id="closeBanner">✕</button>
-    </div>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-    
-    <!-- PWA Service Worker Registration & Install Prompt -->
-    <script>
-        // تسجيل Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js')
-                    .then((registration) => {
-                        console.log('Service Worker مسجل بنجاح:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('فشل تسجيل Service Worker:', error);
-                    });
-            });
-        }
-
-        // إدارة زر تنزيل التطبيق (PWA Install Prompt)
-        let deferredPrompt;
-        const installBanner = document.getElementById('installBanner');
-        const installButton = document.getElementById('installButton');
-        const closeBanner = document.getElementById('closeBanner');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // منع عرض الرسالة الافتراضية
-            e.preventDefault();
-            // حفظ الحدث للاستخدام لاحقًا
-            deferredPrompt = e;
-            // إظهار زر التنزيل
-            installBanner.classList.add('show');
-        });
-
-        installButton.addEventListener('click', async () => {
-            if (!deferredPrompt) {
-                return;
-            }
-            // عرض نافذة التثبيت
-            deferredPrompt.prompt();
-            // انتظار اختيار المستخدم
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log(`اختيار المستخدم: ${outcome}`);
-            // إعادة تعيين المتغير
-            deferredPrompt = null;
-            // إخفاء الزر
-            installBanner.classList.remove('show');
-        });
-
-        closeBanner.addEventListener('click', () => {
-            installBanner.classList.remove('show');
-        });
-
-        // إخفاء الزر بعد التثبيت
-        window.addEventListener('appinstalled', () => {
-            console.log('تم تثبيت التطبيق بنجاح!');
-            installBanner.classList.remove('show');
-            deferredPrompt = null;
-        });
-    </script>
-</body>
-</html>
-
